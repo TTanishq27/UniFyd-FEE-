@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniFyd</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="UniFyd.png">
+</head>
+
+<body>
+    <!-- <div class="loading"><img src="UniFyd.png" alt=""></div> -->
+    <form class="create_post" id="posting">
+        <div class="close">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <h1>Create Post</h1>
+        <div class="create_input">
+            <label for="categories">Categories: </label>
+            <select name="categories" id="select" onchange="changeValue(event)">
+                <option value="1">Gaming</option>
+                <option value="2">Sports</option>
+                <option value="3">Business</option>
+                <option value="4">Celebrity</option>
+                <option value="5">Accident</option>
+            </select>
+        </div>
+        <div class="create_input">
+            <label for="heading">Title: </label><br>
+            <input type="text" name="title" id="title" required>
+        </div>
+        <div class="create_input" >
+            <label for="">Upload Image: </label>
+            <label for="post_image" id="it">Browse
+                <input type="file" name="post_image" id="post_image" accept=".jpg,.jpeg,.png" style="display: none;">
+            </label>
+        </div>
+        <div class="create_input">
+            <label for="content">Description: </label><br>
+            <textarea name="content" id="description"></textarea>
+        </div>
+        <button onclick="submitPost()" type="submit">Post</button>
+    </form>
+    <div id="over"></div>
+    <div class="container">
+        <form id="form" action="/">
+            <i class="fa-solid fa-xmark close"></i>
+            <h1>Register User</h1>
+            <div class="input-control">
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text">
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="text">
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="password">Password</label>
+                <input id="password"name="password" type="password">
+                <i class="fa-solid fa-lock"></i>
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="password2">Confirm Password</label>
+                <input id="password2"name="password2" type="password">
+                <div class="error"></div>
+            </div>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+    
+    <div class="popup" id="popup">
+        <h1>Themes</h1>
+        <i class="fa-solid fa-xmark close"></i>
+        <div class="theme">
+            <button id="light">
+                <i class="fa-solid fa-sun"></i>
+                <h3>Light</h3>
+            </button>
+            <button id="dim">
+                <i class="fa-solid fa-circle"></i>
+                <h3>Dim</h3>
+            </button>
+            <button id="dark">
+                <i class="fa-solid fa-moon"></i>
+                <h3>Dark</h3>
+            </button>
+        </div>
+    </div>
+    <nav>
+        <h1>Un<span>i</span>Fyd</h1>
+        <div class="searchbar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search for Creators, inspirations and unions" id="myInput" onkeyup="filterMe()">
+        </div>
+        <div class="buttons">
+            <button type="button" id="post"><i class="fa-solid fa-plus"></i>Create Post</button>
+            <button type="button" id="login"><i class="fa-solid fa-user-plus"></i>Log In</button>
+        </div>
+    </nav>
+    <div class="website"> 
+        <div class="left">
+            <div class="username">
+                <img src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="" onclick="change()">
+                <div class="usertext">
+                    <h3 contenteditable="true">username</h3>
+                    <p>@<span contenteditable="">user_id</span></p>
+                </div>
+            </div>
+            <div class="sidebar">
+                    <button onclick="scrollToTop()" id="Home">
+                        <i class="fa-solid fa-house"></i>
+                        <h3>Home</h3>
+                    </button>
+                    <button id="Popular" data-no="0">
+                        <i class="fa-solid fa-fire"></i>
+                        <h3>Popular</h3>
+                    </button>
+
+                    <button id="browse">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <h3>Browse</h3>
+                    </button>
+                    <div class="topic" id="topics">
+                        <button id="Gaming" data-no="1">
+                            <i class="fa-solid fa-headset"></i>
+                            <h5>Gaming</h5>
+                        </button>
+                        <button id="Sports" data-no="2">
+                            <i class="fa-regular fa-futbol"></i>
+                            <h5>Sports</h5>
+                        </button>
+                        <button id="Business" data-no="3">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <h5>Business</h5>
+                        </button>
+                        <button id="Celebrity" data-no="4">
+                            <i class="fa-regular fa-star"></i>
+                            <h5>Celebrity</h5>
+                        </button>
+                        <button id="Accident" data-no="5">
+                            <i class="fa-solid fa-car-burst"></i>
+                            <h5>Accident</h5>
+                        </button>
+                    </div>
+
+                    <button id="Notifications">
+                        <i class="fa-regular fa-envelope"></i>
+                        <h3>Notifications</h3>
+                    </button>
+
+                    <button id="theme">
+                        <i class="fa-solid fa-palette"></i>
+                        <h3>Theme</h3>
+                    </button>
+            </div>
+        </div>
+        <div class="main">
+            <div class="top"></div>
+            <div class="content">
+                <div class="center"></div>
+                <div class="right">
+                    <h4 style="margin-bottom: 1rem;">Popular Unions</h4>
+                    <div class="channel">
+                        <img src="https://preview.redd.it/el9wxpqjbbic1.jpeg?width=1080&crop=smart&auto=webp&s=b64c1ea0ac1ef5e1cfac21e2f47ddff91347ae41" alt="">
+                        <div class="faltu">
+                            <h5>uF/funnyMemer</h5>
+                            <p>2,76,000 members</p>
+                        </div>
+                    </div>
+                    <div class="channel">
+                        <img src="https://preview.redd.it/el9wxpqjbbic1.jpeg?width=1080&crop=smart&auto=webp&s=b64c1ea0ac1ef5e1cfac21e2f47ddff91347ae41" alt="">
+                        <div class="faltu">
+                            <h5>uF/dankMeme</h5>
+                            <p>22,76,000 members</p>
+                        </div>
+                    </div>
+                    <div class="channel">
+                        <img src="https://preview.redd.it/el9wxpqjbbic1.jpeg?width=1080&crop=smart&auto=webp&s=b64c1ea0ac1ef5e1cfac21e2f47ddff91347ae41" alt="">
+                        <div class="faltu">
+                            <h5>uF/hardRap</h5>
+                            <p>26,023 members</p>
+                        </div>
+                    </div>
+                    <div class="channel">
+                        <img src="https://preview.redd.it/el9wxpqjbbic1.jpeg?width=1080&crop=smart&auto=webp&s=b64c1ea0ac1ef5e1cfac21e2f47ddff91347ae41" alt="">
+                        <div class="faltu">
+                            <h5>uF/adulter</h5>
+                            <p>1,24,135 members</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="main.js" defer></script> 
