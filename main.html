@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UniFyd</title>
@@ -31,7 +31,7 @@
             <label for="heading">Title: </label><br>
             <input type="text" name="title" id="title" required>
         </div>
-        <div class="create_input" >
+        <div class="create_input">
             <label for="upload_image">Upload Image: </label>
             <select name="images" id="upload_image" onchange="changeImage(event)">
                 <option value="AP.webp">image1</option>
@@ -74,13 +74,13 @@
             </div>
             <div class="input-control">
                 <label for="password2">Confirm Password</label>
-                <input id="password2"name="password2" type="password" placeholder="Re-enter Password">
+                <input id="password2" name="password2" type="password" placeholder="Re-enter Password">
                 <div class="error"></div>
             </div>
             <button type="submit">Sign Up</button>
         </form>
     </div>
-    
+
     <div class="popup" id="popup">
         <h1>Themes</h1>
         <i class="fa-solid fa-xmark close"></i>
@@ -103,14 +103,22 @@
         <h1>Un<span>i</span>Fyd</h1>
         <div class="searchbar">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Search for Creators, inspirations and unions" id="myInput" onkeyup="filterMe()">
+            <input type="text" placeholder="Search for Creators, inspirations and unions" id="searchbar">
+            <ul class="dropdown" id="dropdown">
+                <li value="5" onclick="changeA(5)">Accident</li>
+                <li value="3" onclick="changeA(3)">Business</li>
+                <li value="4" onclick="changeA(4)">Celebrity</li>
+                <li value="1" onclick="changeA(1)">Gaming</li>
+                <li value="0" onclick="changeA(0)">Popular</li>
+                <li value="2" onclick="changeA(2)">Sports</li>
+            </ul>
         </div>
         <div class="buttons">
             <button type="button" id="post"><i class="fa-solid fa-plus"></i>Create Post</button>
             <button type="button" id="login"><i class="fa-solid fa-user-plus"></i>Log In</button>
         </div>
     </nav>
-    <div class="website"> 
+    <div class="website">
         <div class="left">
             <div class="username" id="username_div">
                 <img src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
@@ -121,51 +129,51 @@
                 </div>
             </div>
             <div class="sidebar">
-                    <button onclick="scrollToTop()" id="Home">
-                        <i class="fa-solid fa-house"></i>
-                        <h3>Home</h3>
-                    </button>
-                    <button id="Popular" data-no="0">
-                        <i class="fa-solid fa-fire"></i>
-                        <h3>Popular</h3>
-                    </button>
+                <button onclick="scrollToTop()" id="Home">
+                    <i class="fa-solid fa-house"></i>
+                    <h3>Home</h3>
+                </button>
+                <button id="Popular">
+                    <i class="fa-solid fa-fire"></i>
+                    <h3>Popular</h3>
+                </button>
 
-                    <button id="browse">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <h3>Browse</h3>
+                <button id="browse">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <h3>Browse</h3>
+                </button>
+                <div class="topic" id="topics">
+                    <button id="Gaming">
+                        <i class="fa-solid fa-headset"></i>
+                        <h5>Gaming</h5>
                     </button>
-                    <div class="topic" id="topics">
-                        <button id="Gaming" data-no="1">
-                            <i class="fa-solid fa-headset"></i>
-                            <h5>Gaming</h5>
-                        </button>
-                        <button id="Sports" data-no="2">
-                            <i class="fa-regular fa-futbol"></i>
-                            <h5>Sports</h5>
-                        </button>
-                        <button id="Business" data-no="3">
-                            <i class="fa-solid fa-chart-line"></i>
-                            <h5>Business</h5>
-                        </button>
-                        <button id="Celebrity" data-no="4">
-                            <i class="fa-regular fa-star"></i>
-                            <h5>Celebrity</h5>
-                        </button>
-                        <button id="Accident" data-no="5">
-                            <i class="fa-solid fa-car-burst"></i>
-                            <h5>Accident</h5>
-                        </button>
-                    </div>
+                    <button id="Sports">
+                        <i class="fa-regular fa-futbol"></i>
+                        <h5>Sports</h5>
+                    </button>
+                    <button id="Business">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <h5>Business</h5>
+                    </button>
+                    <button id="Celebrity">
+                        <i class="fa-regular fa-star"></i>
+                        <h5>Celebrity</h5>
+                    </button>
+                    <button id="Accident">
+                        <i class="fa-solid fa-car-burst"></i>
+                        <h5>Accident</h5>
+                    </button>
+                </div>
 
-                    <button id="Notifications">
-                        <i class="fa-regular fa-envelope"></i>
-                        <h3>Notifications</h3>
-                    </button>
+                <button id="Notifications">
+                    <i class="fa-regular fa-envelope"></i>
+                    <h3>Notifications</h3>
+                </button>
 
-                    <button id="theme">
-                        <i class="fa-solid fa-palette"></i>
-                        <h3>Theme</h3>
-                    </button>
+                <button id="theme">
+                    <i class="fa-solid fa-palette"></i>
+                    <h3>Theme</h3>
+                </button>
             </div>
         </div>
         <div class="main">
@@ -175,28 +183,32 @@
                 <div class="right">
                     <h4 style="margin-bottom: 1rem;">Popular Unions</h4>
                     <div class="channel">
-                        <img src="https://preview.redd.it/el9wxpqjbbic1.jpeg?width=1080&crop=smart&auto=webp&s=b64c1ea0ac1ef5e1cfac21e2f47ddff91347ae41" alt="">
+                        <img src="https://preview.redd.it/el9wxpqjbbic1.jpeg?width=1080&crop=smart&auto=webp&s=b64c1ea0ac1ef5e1cfac21e2f47ddff91347ae41"
+                            alt="">
                         <div class="faltu">
                             <h5>uF/funnyMemer</h5>
                             <p>2,76,000 members</p>
                         </div>
                     </div>
                     <div class="channel">
-                        <img src="https://preview.redd.it/el9wxpqjbbic1.jpeg?width=1080&crop=smart&auto=webp&s=b64c1ea0ac1ef5e1cfac21e2f47ddff91347ae41" alt="">
+                        <img src="https://preview.redd.it/el9wxpqjbbic1.jpeg?width=1080&crop=smart&auto=webp&s=b64c1ea0ac1ef5e1cfac21e2f47ddff91347ae41"
+                            alt="">
                         <div class="faltu">
                             <h5>uF/dankMeme</h5>
                             <p>22,76,000 members</p>
                         </div>
                     </div>
                     <div class="channel">
-                        <img src="https://preview.redd.it/el9wxpqjbbic1.jpeg?width=1080&crop=smart&auto=webp&s=b64c1ea0ac1ef5e1cfac21e2f47ddff91347ae41" alt="">
+                        <img src="https://preview.redd.it/el9wxpqjbbic1.jpeg?width=1080&crop=smart&auto=webp&s=b64c1ea0ac1ef5e1cfac21e2f47ddff91347ae41"
+                            alt="">
                         <div class="faltu">
                             <h5>uF/hardRap</h5>
                             <p>26,023 members</p>
                         </div>
                     </div>
                     <div class="channel">
-                        <img src="https://preview.redd.it/el9wxpqjbbic1.jpeg?width=1080&crop=smart&auto=webp&s=b64c1ea0ac1ef5e1cfac21e2f47ddff91347ae41" alt="">
+                        <img src="https://preview.redd.it/el9wxpqjbbic1.jpeg?width=1080&crop=smart&auto=webp&s=b64c1ea0ac1ef5e1cfac21e2f47ddff91347ae41"
+                            alt="">
                         <div class="faltu">
                             <h5>uF/adulter</h5>
                             <p>1,24,135 members</p>
@@ -210,4 +222,4 @@
 
 </html>
 
-<script src="main.js" defer></script> 
+<script src="main.js" defer></script>
