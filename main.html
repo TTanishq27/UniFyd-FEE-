@@ -32,10 +32,13 @@
             <input type="text" name="title" id="title" required>
         </div>
         <div class="create_input" >
-            <label for="">Upload Image: </label>
-            <label for="post_image" id="it">Browse
-                <input type="file" name="post_image" id="post_image" accept=".jpg,.jpeg,.png" style="display: none;">
-            </label>
+            <label for="upload_image">Upload Image: </label>
+            <select name="images" id="upload_image" onchange="changeImage(event)">
+                <option value="AP.webp">image1</option>
+                <option value="espn.webp">image2</option>
+                <option value="fox.webp">image3</option>
+                <option value="UniFyd.png">image4</option>
+            </select>
         </div>
         <div class="create_input">
             <label for="content">Description: </label><br>
@@ -49,24 +52,29 @@
             <i class="fa-solid fa-xmark close"></i>
             <h1>Register User</h1>
             <div class="input-control">
-                <label for="username">Username</label>
-                <input id="username" name="username" type="text">
+                <label for="username">My name</label>
+                <input id="username" name="username" type="text" placeholder="First name only">
                 <div class="error"></div>
             </div>
             <div class="input-control">
                 <label for="email">Email</label>
-                <input id="email" name="email" type="text">
+                <input id="email" name="email" type="text" placeholder="example@gmail.com">
+                <div class="error"></div>
+            </div>
+            <div class="input-control">
+                <label for="user_id">Username</label>
+                <input id="user_id" name="user_id" type="text" placeholder="username (discoverable by others)">
                 <div class="error"></div>
             </div>
             <div class="input-control">
                 <label for="password">Password</label>
-                <input id="password"name="password" type="password">
+                <input id="password" name="password" type="password" placeholder="At least 8 characters">
                 <i class="fa-solid fa-lock"></i>
                 <div class="error"></div>
             </div>
             <div class="input-control">
                 <label for="password2">Confirm Password</label>
-                <input id="password2"name="password2" type="password">
+                <input id="password2"name="password2" type="password" placeholder="Re-enter Password">
                 <div class="error"></div>
             </div>
             <button type="submit">Sign Up</button>
@@ -104,12 +112,12 @@
     </nav>
     <div class="website"> 
         <div class="left">
-            <div class="username">
+            <div class="username" id="username_div">
                 <img src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                     alt="" onclick="change()">
                 <div class="usertext">
-                    <h3 contenteditable="true">username</h3>
-                    <p>@<span contenteditable="">user_id</span></p>
+                    <h3 id="name_display">username</h3>
+                    <p>@<span id="id_display">user_id</span><span id="rand">01</span></p>
                 </div>
             </div>
             <div class="sidebar">
