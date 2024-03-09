@@ -16,7 +16,7 @@ function toggleLike(x) {
     x.classList.toggle("fa-solid");
 }
 
-let a = 1; 
+let a = 1;
 function changeValue(event) {
     a = event.target.value;
 }
@@ -26,7 +26,22 @@ function changeImage(event) {
     im = event.target.value;
 }
 
+function read(e) {
+    e.classList.toggle("read");
+}
+
 document.getElementById('rand').innerText = Math.floor(Math.random() * 99) + 1;
+
+
+function likeIt(x, commentId) {
+    x.classList.toggle('fa-solid');
+    let likeCount = document.getElementById(`count-${commentId}`);
+    if (x.classList.contains('fa-solid')) {
+        likeCount.innerHTML++;
+    } else {
+        likeCount.innerHTML--;
+    }
+}
 
 // ________________________________________________________________Dropdown on left side
 let browse = document.getElementById('browse');
@@ -172,6 +187,7 @@ const options = [
 function Feed(x) {
     var myFeed = ""
     let center_div = document.querySelector(".center");
+
     options[x].forEach((element) => {
         myFeed += `<div class="feedcard">
         <div class="firstline">
@@ -183,19 +199,18 @@ function Feed(x) {
         </div>
         <h3>${element.title}</h3>
         <div class="imgdiv" style="background: url('${element.img}') center;"><img src=${element.img} alt="none" loading="lazy"></div>
-        <div class="extra"> 
+        <div class="extra" onclick="read(this)">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum eveniet ea voluptate, magnam nulla est ratione assumenda blanditiis, vero, cumque maxime impedit voluptatibus quam accusantium odit iusto et explicabo. Autem!
         </div>
-        <a href="comments.html?id=${element.id}" target="_blank" class="more">Read More</a>
         <div class="lastline">
             <button type="button">
                 <i class="fa-regular fa-thumbs-up" onclick="toggleLike(this)" id="like" style="color: rgb(0, 191, 0);"></i>
                 <p>${element.likes}</p>
                 <i class="fa-regular fa-thumbs-down" onclick="toggleLike(this)" id="dislike" style="color: red;"></i>
             </button>
-            <a href="comments.html" target="_blank">
+            <a href="comments${element.id}.html" target= "_blank">
                 <i class="fa-regular fa-comment"></i>
-                <p>${element.comments}</p>
+                <p style="margin-right: 1rem;">${element.comments}</p>
             </a>
             <div class="like">
                 <i class="fa-regular fa-heart" onclick="toggleLike(this)"></i>
@@ -234,7 +249,6 @@ let Accident = document.querySelector('#Accident').addEventListener('click', () 
     scrollToTop()
 });
 
-
 // _______________________________________________________________Content of top reelcard
 var arr = [
     { img: "https://static.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/kilat/b26254c66cbf5237bb01573dee687c0f.jpg", heading: "Gaming News", para: "Ohh bhai ye konsa game hai ?" },
@@ -258,7 +272,51 @@ arr.forEach(function (element) {
 
 document.querySelector(".top").innerHTML = clutter;
 
-// _______________________________________________________Form Validation
+// ______________________________________________________________Content of right side
+
+var right = [
+    {img: "https://imgs.search.brave.com/_3ON5LfQDbhpwWFX6RVUPIxh9zK_at4xcvstdtTGIvE/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTE2/MDc5MTc2Ny9waG90/by9sYXVnaGluZy1o/b3JzZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9XzYzaUhy/RUNvbmtaZFNIT1J5/SWpPbDdONFI0aHh3/S0NacndYbXQ4d3B0/dz0", name: "funnyMemer", members: "4,31,535"},
+    {img: "https://imgs.search.brave.com/72Ui0xWgk-ZrgEsMka8H4Q-X4QaIftvIzDE5rytZ0D0/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9wcmV2/aWV3LnJlZGQuaXQv/ZzF1MmxrbGl5NGw3/MS5qcGc_d2lkdGg9/NjQwJmNyb3A9c21h/cnQmYXV0bz13ZWJw/JnM9NDAzNjZkMmFk/MWZhOGE0NmU4YzEx/NjYwZTkxZjk1OGI4/NjFiN2RiZg", name: "dankyyy", members: "2,43,456"},
+    {img: "https://imgs.search.brave.com/zjp5o6HxGkyF-5zfh-OXsfV_m9M9dwGXQPddn1vTkUE/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAxLzI0LzQxLzAz/LzM2MF9GXzEyNDQx/MDM2N19NNTM4ZVF1/aHA0SXR1WEUyUlZ0/NW03NWtPRFcyblRa/ei5qcGc", name: "cleanMemes", members: "87,653"},
+    {img: "https://imgs.search.brave.com/21rIDQnS2TU_uINMK7t7OKEpA3dAhixwy_azVeKaMs4/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzI1Lzgz/LzEwLzI1ODMxMDFh/NGU2YzNhMmYxZDg1/MzM5MTZhYjIyMDE4/LmpwZw", name: "flowersHeal", members: "2,362"},
+    {img: "https://imgs.search.brave.com/xeFdywHVbPowvmkjNo1FMpa1_5CFOOsyGjEnvXqertE/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTE0/NzYxMzY5MS9waG90/by9hYnN0cmFjdC1n/bGl0Y2gtYmFja2dy/b3VuZC5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9TlMxQ1Rz/cm40NHpmd09ESTFI/YkY5QWVLaV9LcEJ1/bjVlZGo3NFBrTW9U/OD0", name: "glitchInMatrix", members: "9,569"},
+    {img: "https://imgs.search.brave.com/DDK5RMr09SNpUrRwAKFDg4oZFRe_7bND0S8nVM5DUrc/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9lbW9q/aWlzbGFuZC5jb20v/Y2RuL3Nob3AvcHJv/ZHVjdHMvUG9vcF9F/bW9qaV83YjIwNGYw/NS1lZWM2LTQ0OTYt/OTFiMS0zNTFhY2Mw/M2QyYzdfbGFyZ2Uu/cG5nP3Y9MTU3MTYw/NjAzNg", name: "Ohhshi...", members: "83,745"}
+]
+
+var rClutter = "";
+
+right.forEach((element)=>{
+    rClutter += `<a href="a.html" target="_blank">
+        <div class="channel">
+        <img src="${element.img}"
+            alt="">
+        <div class="faltu">
+            <h5>uF/${element.name}</h5>
+            <p>${element.members} members</p>
+        </div>
+        </div>
+    </a>`
+});
+
+document.querySelector('.rightClutter').innerHTML = rClutter;
+
+function filterChannels() {
+    const input = document.getElementById('rSearch').value.toLowerCase();
+    const channels = document.getElementsByClassName('channel');
+  
+    Array.from(channels).forEach((channel) => {
+      const name = channel.getElementsByTagName('h5')[0].innerText.toLowerCase();
+      if (name.includes(input)) {
+        channel.style.display = 'flex';
+      } else {
+        channel.style.display = 'none';
+      }
+    });
+  }
+
+  document.getElementById('rSearch').addEventListener('input', filterChannels);
+
+//_______________________________________________________Form Validation
 
 const form = document.getElementById('form');
 const username = document.getElementById('username');
@@ -373,6 +431,7 @@ form.addEventListener('submit', e => {
         login.style.display = 'none';
         over.style.display = 'none';
         form.style.display = 'none';
+        alert("Form submitted ✓");
     }
 });
 
@@ -416,12 +475,12 @@ function submitPost() {
 let searchBar = document.getElementById("searchbar");
 let dropdown = document.getElementById("dropdown");
 
-searchBar.addEventListener('click', ()=>{
+searchBar.addEventListener('click', () => {
     dropdown.style.display = 'block';
 })
 
 function changeA(val) {
-    Feed(val); 
+    Feed(val);
     scrollToTop();
     dropdown.style.display = 'none';
 }
