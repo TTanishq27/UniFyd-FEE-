@@ -115,6 +115,7 @@ a {
 .create_post h1 {
     text-align: center;
     color: var(--border-color);
+    font-size: calc(var(--font-size)*2);
     margin-bottom: 2rem;
 }
 
@@ -130,6 +131,10 @@ a {
     padding: 0.7rem 1rem;
     width: 90%;
     border-radius: 0.3rem;
+}
+
+.create_input label{
+    font-size: var(--font-size);
 }
 
 textarea {
@@ -176,9 +181,6 @@ textarea {
     border: none;
     outline: none;
     cursor: pointer;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
 }
 
 #select *,
@@ -277,6 +279,8 @@ nav .searchbar input:focus{
     background-color: var(--body-color);
     border-radius:0 0 0.5rem 0.5rem;
     box-shadow: 0 4px 4px var(--bg-color);
+    height: 10rem;
+    overflow-y: scroll;
     z-index: 9999;
     display: none;
 }
@@ -284,6 +288,8 @@ nav .searchbar input:focus{
 .dropdown li{
     padding: 0.5rem;
     list-style-type: none; 
+    box-shadow: 0 1px 1px  var(--bg-color);
+    font-size: calc(var(--font-size)*0.9);
     cursor: pointer;
     color: var(--text-color);
 }
@@ -769,7 +775,12 @@ nav .searchbar i {
 #form h1 {
     color: var(--border-color);
     text-align: center;
+    font-size: calc(var(--font-size)*2);
     margin-bottom: 1rem;
+}
+
+#form label{
+    font-size: calc(var(--font-size)*0.9);
 }
 
 #form button {
@@ -806,6 +817,10 @@ nav .searchbar i {
     background-color: var(--body-color);
     padding: 0.7rem 1rem;
     width: 90%;
+}
+
+.input-control input::placeholder{
+    font-size: calc(var(--font-size)*0.8);
 }
 
 .input-control i {

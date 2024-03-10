@@ -98,6 +98,10 @@
     .reelcard{
         width: 12rem;
     }
+    .dropdown{
+        left: 1rem;
+        width: 92%;
+    }
     h3{
         font-size: calc(var(--font-size)*1);
     }
@@ -145,6 +149,10 @@
     }
     nav .searchbar input{
         width: 10rem;
+    }
+    .dropdown{
+        left: 1rem;
+        width: 86.5%;
     }
 }
 
@@ -211,15 +219,28 @@
     }
     
     nav .buttons button{
-        margin: 0.2rem;
+        margin: 0;
         text-align: center;
-        padding: 0.5rem;
+        padding: 0.3rem;
         border-radius: 50%;
     }
 
     nav .buttons button i{
         margin: 0;
         width: 1rem;
+    }
+
+    .dropdown{
+        left: 1rem;
+        width: 77%;
+    }
+
+    #form, .create_post{
+        width: 16rem;
+    }
+
+    .input-control input{
+        padding: 0.5rem 1rem;
     }
 }
 
@@ -238,6 +259,10 @@
 @media screen and (max-width: 300px) {
     nav .searchbar input{
         width: 1rem;
+    }
+    .dropdown{
+        left: 1rem;
+        width: 74%;
     }
 }
 

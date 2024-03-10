@@ -43,14 +43,6 @@ function likeIt(x, commentId) {
     }
 }
 
-// ________________________________________________________________Dropdown on left side
-let browse = document.getElementById('browse');
-let topics = document.getElementById('topics');
-
-browse.addEventListener('click', () => {
-    topics.classList.toggle('none');
-});
-
 // ________________________________________________________________Themes (dark mode/ light mode)
 let theme = document.getElementById('theme');
 let popup = document.getElementById('popup');
@@ -456,9 +448,11 @@ function submitPost() {
         likes: 0,
         comments: 0
     }
-    options[a].push(upload)
-    Feed(a);
-    scrollToBottom();
+    if(title.value !== ''){
+        options[a].push(upload)
+        Feed(a);
+        scrollToBottom();
+    }
 }
 
 // ________________________________________________Searchbar
@@ -502,4 +496,13 @@ function changeA(val) {
     Feed(val);
     scrollToTop();
     dropdown.style.display = 'none';
+    cd.style.display = 'none';
 }
+
+// ________________________________________________________________Dropdown on left side
+let browse = document.getElementById('browse');
+let topics = document.getElementById('topics');
+
+browse.addEventListener('click', () => {
+    topics.classList.toggle('none');
+});
