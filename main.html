@@ -7,6 +7,7 @@
     <title>UniFyd</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="media.css">
     <link rel="icon" href="UniFyd.png">
 </head>
 
@@ -100,22 +101,24 @@
         </div>
     </div>
     <nav>
+        <img src="UniFyd.png" alt="" width="40rem" id="logo">
         <h1>Un<span>i</span>Fyd</h1>
         <div class="searchbar">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Search for Creators, inspirations and unions" id="searchbar">
+            <input type="text" placeholder="Search for Creators, inspirations and unions" id="searchbar" name="search" onkeyup="search()">
+            <i class="fa-solid fa-xmark close" id="closeDropdown"></i>
             <ul class="dropdown" id="dropdown">
-                <li value="5" onclick="changeA(5)">Accident</li>
-                <li value="3" onclick="changeA(3)">Business</li>
-                <li value="4" onclick="changeA(4)">Celebrity</li>
-                <li value="1" onclick="changeA(1)">Gaming</li>
-                <li value="0" onclick="changeA(0)">Popular</li>
-                <li value="2" onclick="changeA(2)">Sports</li>
+                <li class="list" value="5" onclick="changeA(5)">Accident</li>
+                <li class="list" value="3" onclick="changeA(3)">Business</li>
+                <li class="list" value="4" onclick="changeA(4)">Celebrity</li>
+                <li class="list" value="1" onclick="changeA(1)">Gaming</li>
+                <li class="list" value="0" onclick="changeA(0)">Popular</li>
+                <li class="list" value="2" onclick="changeA(2)">Sports</li>
             </ul>
         </div>
         <div class="buttons">
-            <button type="button" id="post"><i class="fa-solid fa-plus"></i>Create Post</button>
-            <button type="button" id="login"><i class="fa-solid fa-user-plus"></i>Log In</button>
+            <button type="button" id="post"><i class="fa-solid fa-plus"></i><span>Create Post</span></button>
+            <button type="button" id="login"><i class="fa-solid fa-user-plus"></i><span>Log In</span></button>
         </div>
     </nav>
     <div class="website">
@@ -165,9 +168,9 @@
                     </button>
                 </div>
 
-                <button id="Notifications">
-                    <i class="fa-regular fa-envelope"></i>
-                    <h3>Notifications</h3>
+                <button id="About">
+                    <i class="fa-solid fa-people-group"></i>
+                    <h3>About</h3>
                 </button>
 
                 <button id="theme">

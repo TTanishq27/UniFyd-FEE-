@@ -62,15 +62,6 @@ theme.addEventListener('click', () => {
     over.style.display = 'block';
 });
 
-close.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-        form.style.display = 'none';
-        create_post_div.style.display = 'none';
-        popup.style.display = 'none';
-        over.style.display = 'none';
-    });
-});
-
 let light = document.getElementById('light');
 let dim = document.getElementById('dim');
 let dark = document.getElementById('dark');
@@ -474,10 +465,38 @@ function submitPost() {
 
 let searchBar = document.getElementById("searchbar");
 let dropdown = document.getElementById("dropdown");
+let cd = document.getElementById("closeDropdown");
 
 searchBar.addEventListener('click', () => {
     dropdown.style.display = 'block';
+    cd.style.display = 'block';
 })
+
+function search() {
+    let input = searchBar.value;
+    input = input.toLowerCase();
+    let x = document.getElementsByClassName('list');
+    
+    for (i = 0; i < x.length; i++) {
+        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+            x[i].style.display = "none";
+        }
+        else {
+            x[i].style.display = "list-item";
+        }
+    }
+}
+
+close.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+        form.style.display = 'none';
+        create_post_div.style.display = 'none';
+        popup.style.display = 'none';
+        over.style.display = 'none';
+        dropdown.style.display = 'none';
+        cd.style.display = 'none';
+    });
+}); 
 
 function changeA(val) {
     Feed(val);

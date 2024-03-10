@@ -1,0 +1,243 @@
+/* __________________________Media Queries _____________________________ */
+
+@media screen and (max-width: 1530px) {
+    .top{
+        width: 68rem;
+    }
+    .right{
+        width: 14rem;
+    }
+    .left{
+        width: 15rem;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    nav .searchbar input{
+        width: calc(100vw - 40rem);
+    }
+    .left{
+        width: 90%;
+    }
+    .top{
+        width: 65rem;
+    }
+    .right{
+        width: 12rem;
+    }
+}
+
+@media screen and (max-width: 1350px){
+    .topic{
+        margin-left: 0;
+    }
+    :root{
+        --font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 1260px) {
+    .center{
+        width: 45rem;
+    }
+    .top{
+        width: 58rem;
+    }
+    .reelcard{
+        width: 15rem;
+    }
+}
+
+@media screen and (max-width: 1170px) {
+    nav{
+        height: 60px;
+    }
+    .website{
+        top: 4rem;
+    }
+    .center{
+        width: 40rem;
+    }
+    .top{
+        width: 52rem;
+    }
+    .left{
+        width: 10rem;
+        top: 5rem;
+        height: 36rem;
+    }
+    .left .username img{
+        height: 2rem;
+        width: 2rem;
+    }
+    .right{
+        width: 10rem;
+    }
+    .right .channel h5{ 
+        font-size: 0.7rem;
+    }
+    .right .channel p{
+        font-size: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 1040px){
+    :root{
+        --font-size: 0.8rem;
+    }
+    .center{
+        width: 34rem;
+    }
+    .top{
+        width: 46rem;
+        height: 14rem;
+    }
+    .right h4{
+        text-align: center;
+    }
+    .reelcard{
+        width: 12rem;
+    }
+    h3{
+        font-size: calc(var(--font-size)*1);
+    }
+    h5{
+        font-size: calc(var(--font-size)*0.9);
+    }
+}
+
+@media screen and (max-width: 950px){
+    .right{
+        display: none;
+    }
+    .top{
+        width: 45rem;
+    }
+    .username{
+        margin-top: 0.5rem;
+        padding: 0;
+        background-color: transparent;
+        box-shadow: none;
+    }
+    .username img{
+        margin-left: 1rem;
+    }
+    .left{
+        width: fit-content;
+    }
+    .left h3, .left p{
+        display: none;
+    }
+    .topic h5{
+        display: none;
+    }
+    .center{
+        width: 45rem;
+    }
+}
+
+@media screen and (max-width:  830px) {
+    .top{
+        width: 36rem;
+    }
+    .center{
+        width: 36rem;
+    }
+    nav .searchbar input{
+        width: 10rem;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .top{
+        width: 30rem;
+    }
+    .reelcard h1{
+        padding: 0;
+    }
+    .center{
+        width: 30rem;
+    }
+    nav .buttons button{
+        margin: 0;
+        padding: 0.5rem 1rem;
+    }
+    #logo{
+        display: flex;
+    }
+    nav h1{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 570px){
+    nav .searchbar input{
+        width: 2.5rem;
+    }
+
+    .feedcard img{
+        object-fit: cover;
+        backdrop-filter: none;
+    }
+
+    .left .sidebar{
+        position: fixed;
+        flex-direction: row;
+        justify-content: center;
+        z-index: 999;
+        width: 100%;
+        bottom: 0;
+        box-shadow: 0 4px 10px var(--border-color);
+        left: 50%;
+        transform: translate(-50%);
+    }
+    .topic{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .top{
+        width: 20rem;
+    }
+    .center{
+        width: 20rem;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    nav .buttons button span{
+        display: none;
+    }
+    
+    nav .buttons button{
+        margin: 0.2rem;
+        text-align: center;
+        padding: 0.5rem;
+        border-radius: 50%;
+    }
+
+    nav .buttons button i{
+        margin: 0;
+        width: 1rem;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .top{
+        width: 18rem;
+    }
+    .center{
+        width: 18rem;
+    }
+    .like{
+        background-color: transparent;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    nav .searchbar input{
+        width: 1rem;
+    }
+}
+
