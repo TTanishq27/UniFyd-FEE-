@@ -157,27 +157,27 @@
         <div class="comment">
             <div class="but">
                 <button>
-                    <i class="fa-regular fa-heart " onclick="likeIt(this, 1)" style="color: red;"></i>
+                    <i class="fa-regular fa-heart " onclick="toggleLike(this, 1)" style="color: red;"></i>
                 </button>
-                    <p id="count-1">1.3k</p>
+                    <p id="count-1">13</p>
             </div>
             <p>exercitationem, doloremque, esse, blanditiis suscipit laborum saepe dolorum. Enim doloremque porro in ipsum non assumenda, dolore fugit. </p>
         </div>
         <div class="comment">
             <div class="but">
                 <button>
-                    <i class="fa-regular fa-heart " onclick="likeIt(this, 2)" style="color: red;"></i>
+                    <i class="fa-regular fa-heart " onclick="toggleLike(this, 2)" style="color: red;"></i>
                 </button>
-                    <p id="count-2">67</p>
+                    <p id="count-2">7</p>
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit sint aspernatur voluptatum quis mollitia consectetur, quo vel quod dolores necessitatibus? </p>
         </div>
         <div class="comment">
             <div class="but">
                 <button>
-                    <i class="fa-regular fa-heart " onclick="likeIt(this, 3)" style="color: red;"></i>
+                    <i class="fa-regular fa-heart " onclick="toggleLike(this, 3)" style="color: red;"></i>
                 </button>
-                    <p id="count-3">236</p>
+                    <p id="count-3">26</p>
             </div>
             <p>ipsum non assumenda, dolore fugit? At totam, officiis inventore nemo nobis molestias maxime, odio possimus </p>
         </div>
@@ -188,16 +188,6 @@
 <script>
 let like = document.querySelector('.like');
 
-function likeIt(x, commentId) {
-  x.classList.toggle('fa-solid');
-  let likeCount = document.getElementById(`count-${commentId}`);
-  if (x.classList.contains('fa-solid')) {
-    likeCount.innerHTML++;
-  } else {
-    likeCount.innerHTML--;
-  }
-}
-
 document.getElementById('showDivBtn').addEventListener('click', ()=> {
     const inputTextarea = document.getElementById('inputTextarea');
     const outputDiv = document.getElementById('outputDiv');
@@ -205,7 +195,7 @@ document.getElementById('showDivBtn').addEventListener('click', ()=> {
     <div class="comment">
         <div class="but">
             <button>
-                <i class="fa-regular fa-heart" onclick="likeIt(this, 4)" style="color: red;"></i>
+                <i class="fa-regular fa-heart" onclick="toggleLike(this, 4)" style="color: red;"></i>
             </button>
             <p id="count-4">0</p>
         </div>

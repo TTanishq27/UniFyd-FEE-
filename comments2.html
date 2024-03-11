@@ -157,16 +157,16 @@
         <div class="comment">
             <div class="but">
                 <button>
-                    <i class="fa-regular fa-heart " onclick="likeIt(this, 1)" style="color: red;"></i>
+                    <i class="fa-regular fa-heart " onclick="toggleLike(this, 1)" style="color: red;"></i>
                 </button>
-                    <p id="count-1">2.1k</p>
+                    <p id="count-1">21</p>
             </div>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit sint aspernatur voluptatum quis mollitia consectetur, quo vel quod dolores necessitatibus? </p>
         </div>
         <div class="comment">
             <div class="but">
                 <button>
-                    <i class="fa-regular fa-heart " onclick="likeIt(this, 2)" style="color: red;"></i>
+                    <i class="fa-regular fa-heart " onclick="toggleLike(this, 2)" style="color: red;"></i>
                 </button>
                     <p id="count-2">167</p>
             </div>
@@ -175,7 +175,7 @@
         <div class="comment">
             <div class="but">
                 <button>
-                    <i class="fa-regular fa-heart " onclick="likeIt(this, 3)" style="color: red;"></i>
+                    <i class="fa-regular fa-heart " onclick="toggleLike(this, 3)" style="color: red;"></i>
                 </button>
                     <p id="count-3">67</p>
             </div>
@@ -184,9 +184,9 @@
         <div class="comment">
             <div class="but">
                 <button>
-                    <i class="fa-regular fa-heart " onclick="likeIt(this, 3)" style="color: red;"></i>
+                    <i class="fa-regular fa-heart " onclick="toggleLike(this, 4)" style="color: red;"></i>
                 </button>
-                    <p id="count-3">564</p>
+                    <p id="count-4">564</p>
             </div>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ea nihil quos dolorem impedit laborum, labore fugit ratione neque, nemo sunt natus eveniet totam voluptate sit cumque! Accusamus, obcaecati sunt?</p>
         </div>
@@ -197,16 +197,6 @@
 <script>
 let like = document.querySelector('.like');
 
-function likeIt(x, commentId) {
-  x.classList.toggle('fa-solid');
-  let likeCount = document.getElementById(`count-${commentId}`);
-  if (x.classList.contains('fa-solid')) {
-    likeCount.innerHTML++;
-  } else {
-    likeCount.innerHTML--;
-  }
-}
-
 document.getElementById('showDivBtn').addEventListener('click', ()=> {
     const inputTextarea = document.getElementById('inputTextarea');
     const outputDiv = document.getElementById('outputDiv');
@@ -214,9 +204,9 @@ document.getElementById('showDivBtn').addEventListener('click', ()=> {
     <div class="comment">
         <div class="but">
             <button>
-                <i class="fa-regular fa-heart" onclick="likeIt(this, 4)" style="color: red;"></i>
+                <i class="fa-regular fa-heart" onclick="toggleLike(this, 9)" style="color: red;"></i>
             </button>
-            <p id="count-4">0</p>
+            <p id="count-9">0</p>
         </div>
         <p>${inputTextarea.value}</p>
     </div>`;
