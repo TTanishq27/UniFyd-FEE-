@@ -188,6 +188,10 @@
         backdrop-filter: none;
     }
 
+    .left .username img{
+        display: none;
+    }
+
     .left .sidebar{
         position: fixed;
         flex-direction: row;
@@ -241,6 +245,14 @@
 
     .input-control input{
         padding: 0.5rem 1rem;
+    }
+
+    .input input{
+        width: 60%;
+    }
+
+    #ShowDivBtn{
+        width: 0;
     }
 }
 

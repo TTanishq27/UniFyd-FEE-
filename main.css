@@ -22,31 +22,29 @@
     width: 110%;
     gap: 1rem;
     z-index: 99;
+    animation: disable 0ms forwards;
+    animation-delay: 4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .loading img {
     width: 200px;
-    animation: welcome 2s ease 1;
-}
-
-.yo {
-    animation: image 2s linear forwards;
+    animation: image 5s ease 1 forwards;
+    animation-delay: 1s;
 }
 
 @keyframes image {
     to {
-        opacity: 1;
-        scale: 20;
+        opacity: 0;
+        scale: 100;
     }
 }
 
-@keyframes welcome {
-    50% {
-        transform: translate(10rem, 40rem);
-    }
-
-    100% {
-        transform: translate(100%, 100%);
+@keyframes disable{
+    to{
+        display: none;
     }
 }
 
